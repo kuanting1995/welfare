@@ -1,11 +1,11 @@
 import React from 'react'
 
-const main_form = () => {
+const Nopage = () => {
   return (
     <div>
-      
+      404 
     </div>
   )
 }
 
-export default main_form
+export default Nopage
