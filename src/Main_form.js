@@ -6,20 +6,14 @@ const Main_form = () => {
   return (
     <>
       <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-          crossorigin="anonymous"
-        ></script>
-        <div className="container">
+        <div className="container my-5 py-5">
           {/* <!-- 表單抬頭 --> */}
           <div className="d-flex justify-content-between">
             <div className="col-2 align-self-end">
               <h1>Logo</h1>
             </div>
             <div className="col-8 align-self-end">
-              <h4 className="">醫療財團法人辜公亮基金會和信治癌中心醫院</h4>
+              <h3 className="">醫療財團法人辜公亮基金會和信治癌中心醫院</h3>
               <h7>KOO FOUNDATION SUM YAT-SEN CANCER CENTER</h7>
             </div>
             <div className="col-1 align-self-end">
@@ -27,13 +21,15 @@ const Main_form = () => {
             </div>
           </div>
           {/* <!-- 表單名稱 --> */}
-          <div className="">
-            <h4 className="mt-5">醫療費用補助單</h4>
-            <div className="d-flex flex-row">
-              <div className="d-flex flex-row col-md-6">
-                <div className="col-3">開單日期</div>
+          <div className="py-5 mt-2">
+            <div className="d-flex flex-row justify-content-between">
+              <h2 className="align-self-center text-end">醫療費用補助單</h2>
+              <div className="d-flex flex-row col-md-6 align-self-center">
+                <div className="col-6 align-self-center text-end me-3">
+                  <h7>開單日期</h7>
+                </div>
                 <input
-                  className="form-control mx-5"
+                  className="form-control"
                   type="date"
                   name="birthday"
                   id="birthday"
@@ -46,7 +42,10 @@ const Main_form = () => {
 
           {/* <!-- 正式FORM --> */}
 
-          <div className="row w-100" style={{ backgroundColor: "lightgray" }}>
+          <div
+            className="row w-100 py-3 px-1"
+            style={{ backgroundColor: "lightgray" }}
+          >
             {/* <!--第1行-1 --> */}
             <div className="d-flex justify-content-between col-md-4">
               <div className="col-5">補助姓名</div>
@@ -131,11 +130,11 @@ const Main_form = () => {
               </div>
             </div>
             {/* <!-- 第3行-2 --> */}
-            <div className="d-flex justify-content-between col-md-4">
-              <div className="theader col-6">門診批假序號/住院號</div>
+            <div className="d-flex justify-content-between col-md-5">
+              <div className="theader col-5 me-4">門診批假序號/住院號</div>
               <div>
                 <input
-                  className="form-control me-2"
+                  className="form-control"
                   type="text"
                   name="name"
                   id="name"
@@ -143,16 +142,13 @@ const Main_form = () => {
                 <div className="form-text"></div>
               </div>
             </div>
-            {/* <!-- 第3行-3 --> */}
-            <div className="d-flex justify-content-between col-md-4"></div>
-
-            {/* <!--第4行 --> */}
-            <div className="d-flex flex-row col-md-6">
-              <div className="">就醫日期</div>
-              <div className="me-0">
-                {" "}
+            <div className="d-flex justify-content-between col-md-3"></div>
+            {/* <!--第4行-1 --> */}
+            <div className="d-flex justify-content-left col-md-4">
+              <div className="col-5">就醫日期</div>
+              <div className="flex-fill">
                 <input
-                  className="form-control mx-5"
+                  className="form-control px-5"
                   type="date"
                   name="birthday"
                   id="birthday"
@@ -162,12 +158,11 @@ const Main_form = () => {
                 <div className="form-text"></div>
               </div>
             </div>
-            <div className="d-flex flex-row col-md-6">
-              <div className="">至</div>
-              <div>
-                {" "}
+            <div className="d-flex justify-content-left col-md-3">
+              <div className="col-2">至</div>
+              <div className="flex-fill">
                 <input
-                  className="form-control mx-5"
+                  className="form-control px-5"
                   type="date"
                   name="birthday"
                   id="birthday"
@@ -177,13 +172,14 @@ const Main_form = () => {
                 <div className="form-text"></div>
               </div>
             </div>
+            <div className="d-flex justify-content-left col-md-5"></div>
 
             {/* <!-- 第5行 --> */}
-            <div className="row w-100">
-              <div className="theader col-3">醫療費用總額</div>
+            <div className="d-flex justify-content-left col-md-10 pt-1">
+              <div className="theader col-2">醫療費用金額</div>
               <div className="tbb col-9">
                 <input
-                  className="form-control me-2"
+                  className="form-control"
                   type="text"
                   name="mobile"
                   id="mobile"
@@ -196,8 +192,12 @@ const Main_form = () => {
             {/* <!-- 第6行 --> */}
             <div className="d-flex flex-row">
               <div className="d-flex flex-row col-md-6">
-                <div className="col-3">扣除項目</div>
-                <select className="form-select" name="level" id="level">
+                <div className="col-2 me-5 align-self-center">扣除項目</div>
+                <select
+                  className="form-select my-2 mx-3"
+                  name="level"
+                  id="level"
+                >
                   <option value="1">低收入戶補助~北市、新北市政府</option>
                   <option value="2">私人保險理賠</option>
                   <option value="3">自費藥物</option>
@@ -209,9 +209,9 @@ const Main_form = () => {
                 </select>
               </div>
               <div className="d-flex flex-row col-md-6">
-                <div className="">扣除項目金額</div>
+                <div className="col-3 align-self-center">扣除項目金額</div>
                 <input
-                  className="form-control me-2"
+                  className="form-control me-2 my-2"
                   type="text"
                   name="mobile"
                   id="mobile"
@@ -221,9 +221,9 @@ const Main_form = () => {
             </div>
 
             {/* <!--第7行-1 --> */}
-            <div className="d-flex justify-content-between col-md-4">
-              <div className="">補助項目1</div>
-              <div>
+            <div className="d-flex justify-content-left col-md-5">
+              <div className="col-4">補助項目1</div>
+              <div className="flex-fill">
                 <select
                   className="form-select"
                   aria-label="Default select example"
@@ -243,7 +243,7 @@ const Main_form = () => {
             </div>
             {/* <!-- 第7行-2 --> */}
             <div className="d-flex justify-content-between col-md-4">
-              <div className="theader col-4">基金專戶號碼</div>
+              <div className="theader col-5">基金專戶號碼</div>
               <div>
                 <input
                   className="form-control me-2"
@@ -255,9 +255,9 @@ const Main_form = () => {
               </div>
             </div>
             {/* <!-- 第7行-3 --> */}
-            <div className="d-flex justify-content-between col-md-4">
-              <div className="theader col-3">補助金額</div>
-              <div>
+            <div className="d-flex justify-content-left col-md-3">
+              <div className="theader col-4">補助金額</div>
+              <div className="flex-fill">
                 <input
                   className="form-control me-2"
                   type="text"
@@ -270,9 +270,9 @@ const Main_form = () => {
             </div>
 
             {/* <!--第8行-1 --> */}
-            <div className="d-flex justify-content-between col-md-4">
-              <div className="">補助項目2</div>
-              <div>
+            <div className="d-flex justify-content-left col-md-5">
+              <div className="col-4">補助項目2</div>
+              <div className="flex-fill">
                 <select
                   className="form-select"
                   aria-label="Default select example"
@@ -287,7 +287,7 @@ const Main_form = () => {
             </div>
             {/* <!-- 第8行-2 --> */}
             <div className="d-flex justify-content-between col-md-4">
-              <div className="theader col-4">基金專戶號碼</div>
+              <div className="theader col-5">基金專戶號碼</div>
               <div>
                 <input
                   className="form-control me-2"
@@ -299,8 +299,8 @@ const Main_form = () => {
               </div>
             </div>
             {/* <!-- 第8行-3 --> */}
-            <div className="d-flex justify-content-between col-md-4">
-              <div className="theader col-3">補助比率</div>
+            <div className="d-flex justify-content-between col-md-3">
+              <div className="theader col-4">補助比率</div>
               <div>
                 <input
                   className="form-control me-2"
@@ -312,9 +312,9 @@ const Main_form = () => {
               </div>
             </div>
             {/* <!--第9行-1 --> */}
-            <div className="d-flex justify-content-between col-md-4">
-              <div className="">補助項目3</div>
-              <div>
+            <div className="d-flex justify-content-left col-md-5">
+              <div className="col-4">補助項目3</div>
+              <div className="flex-fill">
                 <select
                   className="form-select"
                   aria-label="Default select example"
@@ -329,7 +329,7 @@ const Main_form = () => {
             </div>
             {/* <!-- 第9行-2 --> */}
             <div className="d-flex justify-content-between col-md-4">
-              <div className="theader col-4">基金專戶號碼</div>
+              <div className="theader col-5">基金專戶號碼</div>
               <div>
                 <input
                   className="form-control me-2"
@@ -341,8 +341,8 @@ const Main_form = () => {
               </div>
             </div>
             {/* <!-- 第9行-3 --> */}
-            <div className="d-flex justify-content-between col-md-4">
-              <div className="theader col-3">補助金額</div>
+            <div className="d-flex justify-content-between col-md-3">
+              <div className="theader col-4">補助金額</div>
               <div>
                 <input
                   className="form-control me-2"
@@ -355,11 +355,11 @@ const Main_form = () => {
               </div>
             </div>
             {/* <!-- 第10行 --> */}
-            <div className="row w-100">
-              <div className="theader col-3">補助金額</div>
+            <div className="d-flex justify-content-left col-md-10">
+              <div className="theader col-2 pe-0">補助金額</div>
               <div className="tbb col-9">
                 <input
-                  className="form-control me-2"
+                  className="form-control"
                   type="text"
                   name="mobile"
                   id="mobile"
@@ -370,11 +370,11 @@ const Main_form = () => {
             </div>
 
             {/* <!-- 第11行 --> */}
-            <div className="row w-100">
-              <div className="theader col-3">自付額</div>
+            <div className="d-flex justify-content-left col-md-10">
+              <div className="theader col-2 pe-0">自付額</div>
               <div className="tbb col-9">
                 <input
-                  className="form-control me-2"
+                  className="form-control"
                   type="text"
                   name="mobile"
                   id="mobile"
@@ -384,23 +384,10 @@ const Main_form = () => {
               </div>
             </div>
 
-            {/* <!-- 自付額 --> */}
-            <div className="d-flex justify-content-between">
-              <div className="col-5">自付額123</div>
-              <div className="">
-                <input
-                  className="mx-auto form-control "
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="（電子簽章）"
-                />
-              </div>
-            </div>
 
             {/* <!--第12行-1 --> */}
-            <div className="d-flex justify-content-between col-md-4">
-              <div className="col-5">病人/家屬簽章</div>
+            <div className="d-flex justify-content-between col-md-4 pt-1">
+              <div className="col-5 align-self-center">病人/家屬簽章</div>
               <div>
                 <input
                   className="form-control me-2"
@@ -413,8 +400,8 @@ const Main_form = () => {
               </div>
             </div>
             {/* <!-- 第12行-2 --> */}
-            <div className="d-flex justify-content-between col-md-4">
-              <div className="theader col-4">經辦</div>
+            <div className="d-flex justify-content-between col-md-4 pt-1">
+              <div className="theader col-4 align-self-center">經辦</div>
               <div>
                 <input
                   className="form-control me-2"
@@ -426,8 +413,8 @@ const Main_form = () => {
               </div>
             </div>
             {/* <!-- 第12行-3 --> */}
-            <div className="d-flex justify-content-between col-md-4">
-              <div className="theader col-3">覆核</div>
+            <div className="d-flex justify-content-between col-md-4 pt-1">
+              <div className="theader col-3 align-self-center">覆核</div>
               <div>
                 <input
                   className="form-control me-2"
