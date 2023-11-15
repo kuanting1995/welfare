@@ -2,18 +2,21 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Nopage from "./Nopage";
-import Main_form from "./Main_form";
+import MainForm from "./Main_form";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Main_form />} />
-          <Route path="*" element={<Nopage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    // <Layout>
+      <MainForm />
+    // </Layout>
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<Layout />}>
+    //       <Route index element={<Main_form />} />
+    //       <Route path="*" element={<Nopage />} />
+    //     </Route>
+    //   </Routes>
+    // </BrowserRouter>
   );
 }
 export default App;
