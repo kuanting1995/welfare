@@ -20,7 +20,7 @@ const Main_form = () => {
               />
             </div>
             <div className="col-8 align-self-end">
-              <h3 className="">醫療財團法人辜公亮基金會和信治癌中心醫院123</h3>
+              <h3 className="">醫療財團法人辜公亮基金會和信治癌中心醫院</h3>
               <h7>KOO FOUNDATION SUM YAT-SEN CANCER CENTER</h7>
             </div>
             <div className="col-1"></div>
@@ -29,10 +29,12 @@ const Main_form = () => {
             </div>
           </div>
           {/* <!-- 表單名稱 --> */}
-          <div className="py-5 me-2">
+          <div className="py-5">
             <div className="d-flex flex-row justify-content-between">
-              <h2 className="align-self-center text-end">醫療費用補助單</h2>
-              <div className="d-flex flex-row col-md-6 align-self-center">
+              <h2 className="align-self-center text-end col-auto">
+                醫療費用補助單
+              </h2>
+              <div className="d-flex flex-row col-md-6 align-self-center me-3">
                 <div className="col-6 align-self-center text-end me-3">
                   <h7>開單日期</h7>
                 </div>
@@ -44,6 +46,19 @@ const Main_form = () => {
                   min="2015-01-01"
                   max="2040-12-31"
                 />
+              </div>
+              <div className="d-flex flex-row col-md-2 align-self-center">
+                <div className="align-self-center text-end me-2 col-auto">
+                  <h7>No.</h7>
+                </div>
+                <input
+                  className="form-control"
+                  type="number"
+                  name="birthday"
+                  id="birthday"
+                  placeholder="2023054835"
+                />
+                <div className="me-3"></div>
               </div>
             </div>
           </div>
