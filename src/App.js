@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./Layout";
-import Nopage from "./Nopage";
 import MainForm from "./Main_form";
 
 function App() {
