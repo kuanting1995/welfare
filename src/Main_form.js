@@ -208,7 +208,6 @@ const Main_form = () => {
                   name="medExpenses"
                   id="medExpenses"
                   placeholder="$"
-                  onChange={}
                 />
                 <div className="form-text"></div>
               </div>
