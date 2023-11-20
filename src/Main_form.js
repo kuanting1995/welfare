@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import SignatureCanvas from "react-signature-canvas";
 
 const Main_form = () => {
   // 表單驗證
@@ -60,6 +61,18 @@ const Main_form = () => {
 
   const handleInputChangeE = (e) => {
     setvalueE(e.target.value);
+  };
+
+  // 電子簽
+  const [sign, setSign] = useState();
+  const [url, setUrl] = useState();
+
+  const handleClear = () => {
+    sign.clear();
+    setUrl("");
+  };
+  const handleGenerate = () => {
+    setUrl(sign.getTrimmedCanvas().toDataURL("image/png"));
   };
 
   return (
@@ -524,14 +537,24 @@ const Main_form = () => {
               <div className="d-flex justify-content-between col-md-4 pt-1">
                 <div className="col-auto align-self-center">病人/家屬簽章</div>
                 <div className="me-3"></div>
-                <div>
-                  <input
-                    className="form-control me-2"
-                    type="text"
-                    name="name"
-                    id="name"
+                <div
+                  style={{
+                    width: 190,
+                    height: 38,
+                    border: "1px solid lightgray",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <img
+                    style={{
+                      objectFit: "scale-down",
+                      width: "100%",
+                      height: "100%",
+                      backgroundColor: "white",
+                      borderRadius: "5px",
+                    }}
+                    src={url}
                   />
-                  <div className="form-text"></div>
                 </div>
               </div>
 
@@ -569,6 +592,38 @@ const Main_form = () => {
                 <div className="mx-3"></div>
               </div>
             </div>
+
+            {/* 電子簽 */}
+            <div>
+              <div
+                style={{ border: "2px solid black", width: 500, height: 200 }}
+              >
+                <SignatureCanvas
+                  canvasProps={{
+                    width: 500,
+                    height: 200,
+                    className: "sigCanvas",
+                  }}
+                  ref={(data) => setSign(data)}
+                />
+              </div>
+              <br></br>
+              <button
+                type="button"
+                style={{ height: "30px", width: "60px" }}
+                onClick={handleClear}
+              >
+                Clear
+              </button>
+              <button
+                type="button"
+                style={{ height: "30px", width: "60px" }}
+                onClick={handleGenerate}
+              >
+                Save
+              </button>
+            </div>
+
             {/* submitBTN */}
             <button type="submit" className="btn btn-primary me-1">
               Submit
