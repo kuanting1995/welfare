@@ -75,13 +75,18 @@ const Main_form = () => {
     setUrl(sign.getTrimmedCanvas().toDataURL("image/png"));
   };
 
+  // 列印
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
     <>
       <body>
         <ToastContainer />
-        <div className="container my-4 py-5">
+        <div className="container my-4 py-5" style={{ maxWidth: "1056px" }}>
           {/* <!-- 表單抬頭 --> */}
-          <div className="d-flex justify-content-between">
+          <div className="form-title d-flex justify-content-between">
             <div className="col-2 align-self-end">
               <img
                 style={{ width: "100px" }}
@@ -96,11 +101,11 @@ const Main_form = () => {
             </div>
             <div className="col-1"></div>
             <div className="col-1 align-self-end">
-              <h4>作廢</h4>
+              <h4 className="dele">作廢</h4>
             </div>
           </div>
           {/* <!-- 表單名稱 --> */}
-          <div className="py-5">
+          <div className="form-name py-5">
             <div className="d-flex flex-row justify-content-between">
               <h2 className="align-self-center text-end col-auto">
                 醫療費用補助單
@@ -593,41 +598,56 @@ const Main_form = () => {
               </div>
             </div>
 
-            {/* 電子簽 */}
-            <div>
-              <div
-                style={{ border: "2px solid black", width: 500, height: 200 }}
-              >
-                <SignatureCanvas
-                  canvasProps={{
-                    width: 500,
-                    height: 200,
-                    className: "sigCanvas",
-                  }}
-                  ref={(data) => setSign(data)}
-                />
+            {/* 功能區：電子簽,送出,列印 */}
+            <div className="funZone d-flex  align-items-start justify-content-between me-3 mt-1">
+              {/* 電子簽 */}
+              <div className="signMain col-md-6">
+                電子簽署：
+                <div
+                  className="signature-canvas"
+                  style={{ border: "2px solid black", width: 500, height: 200 }}
+                >
+                  <SignatureCanvas
+                    canvasProps={{
+                      width: 500,
+                      height: 200,
+                      className: "sigCanvas",
+                    }}
+                    ref={(data) => setSign(data)}
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={handleClear}
+                  className="btn btn-secondary"
+                >
+                  清除
+                </button>
+                <button
+                  type="button"
+                  onClick={handleGenerate}
+                  className="btn btn-logo"
+                >
+                  確定
+                </button>
               </div>
-              <br></br>
-              <button
-                type="button"
-                style={{ height: "30px", width: "60px" }}
-                onClick={handleClear}
-              >
-                Clear
-              </button>
-              <button
-                type="button"
-                style={{ height: "30px", width: "60px" }}
-                onClick={handleGenerate}
-              >
-                Save
-              </button>
-            </div>
+              {/* BTN-group */}
+              <div className="btn-gp">
+                {/* submitBTN */}
+                <button type="submit" className="btn btn-logo me-1">
+                  送出
+                </button>
 
-            {/* submitBTN */}
-            <button type="submit" className="btn btn-primary me-1">
-              Submit
-            </button>
+                {/* printBTN */}
+                <button
+                  type="button"
+                  className="btn btn btn-dark me-1"
+                  onClick={handlePrint}
+                >
+                  列印
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </body>
