@@ -26,7 +26,7 @@ const Main_form = () => {
       .required("就醫結束日未填")
       .matches(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/),
     medRecNum: Yup.string().required("病例號未填"),
-    caseNum: Yup.string().required("案號未填").length(6, "案號為6個數字"),
+    caseNum: Yup.string().required("案號未填"),
     departM: Yup.string().required("科別未填").min(2, "字數太少"),
     Doctor: Yup.string().required("醫生未填寫"),
     valueA: Yup.string().required("金額未填寫").max(8, "金額異常，過大"),
@@ -35,7 +35,7 @@ const Main_form = () => {
   const formOptions = { resolver: yupResolver(validationSchema) };
 
   // get functions to build form with useForm() hook
-  const { register, handleSubmit, formState } = useForm(formOptions);
+  const { register, handleSubmit, formState, setValue } = useForm(formOptions);
   const { errors } = formState;
 
   // 表單送出後會跳視窗
@@ -80,6 +80,18 @@ const Main_form = () => {
     window.print();
   };
 
+  // 一鍵輸入
+  const handleFillform = async () => {
+    setValue("name", "王小明");
+    setValue("Doctor", "陳小華");
+    setValue("caseNum", "001");
+    setValue("departM", "003");
+    setValue("formCreateDate", "2023-11-22");
+    setValue("treatmentStartDate", "2023-11-23");
+    setValue("treatmentEndDate", "2023-11-29");
+    setValue("medRecNum", "0012");
+  };
+
   return (
     <>
       <body>
@@ -111,7 +123,7 @@ const Main_form = () => {
                 醫療費用補助單
               </h2>
               <div className="d-flex flex-row col-md-6 align-self-center me-3">
-                <div className="col-6 align-self-center text-end me-3">
+                <div className="col-4 align-self-center text-end me-3">
                   <h7>開單日期</h7>
                 </div>
                 <input
@@ -133,17 +145,20 @@ const Main_form = () => {
  */}
                 </div>
               </div>
-              <div className="d-flex flex-row col-md-2 align-self-center">
-                <div className="align-self-center text-end me-2 col-auto">
+              <div className="d-flex flex-row col-md-3 align-self-center">
+                <div
+                  className="align-self-center text-end me-2 col-auto"
+                  onClick={handleFillform}
+                >
                   <h7>No.</h7>
                 </div>
                 <input
-                  className="form-control"
+                  className="form-control px-2"
                   type="number"
                   name=""
                   placeholder="2023054835"
                 />
-                <div className="me-3"></div>
+                <div className="mx-3"></div>
               </div>
             </div>
           </div>
@@ -212,7 +227,7 @@ const Main_form = () => {
               </div>
 
               {/* <!--第2行-1 --> */}
-              <div className="d-flex justify-content-between col-md-4">
+              <div className="d-flex justify-content-between col-md-4 my-1">
                 <div className="col-5 align-self-center">看診科別</div>
                 <div>
                   <input
@@ -229,7 +244,7 @@ const Main_form = () => {
                 </div>
               </div>
               {/* <!-- 第2行-2 --> */}
-              <div className="d-flex justify-content-between col-md-4">
+              <div className="d-flex justify-content-between col-md-4 my-1">
                 <div className="me-1"></div>
                 <div className="theader col-4 text-center align-self-center">
                   醫生
@@ -250,7 +265,7 @@ const Main_form = () => {
                 </div>
               </div>
               {/* <!-- 第2行-3 --> */}
-              <div className="d-flex justify-content-between col-md-4"></div>
+              <div className="d-flex justify-content-between col-md-4 my-1"></div>
 
               {/* <!--第3行-1 --> */}
               <div className="d-flex justify-content-between col-md-4 me-1">
@@ -274,10 +289,12 @@ const Main_form = () => {
               </div>
               <div className="d-flex justify-content-between col-md-1"></div>
               {/* <!--第4行-1 --> */}
-              <div className="d-flex justify-content-left col-md-5">
-                <div className="col-4 align-self-center">就醫日期</div>
+              <div className="d-flex justify-content-left col-md-5 ">
+                <div className="col-auto align-self-center">就醫日期</div>
+                <div className="mx-4 pe-3"></div>
                 <div className="flex-fill">
                   <input
+                    style={{ width: "264" }}
                     name="treatmentStartDate"
                     type="date"
                     {...register("treatmentStartDate")}
@@ -292,13 +309,15 @@ const Main_form = () => {
                 </div>
               </div>
               <div className="d-flex justify-content-left col-md-4">
-                <div className="col-2 align-self-center">至</div>
+                <div className="col-1 align-self-center">至</div>
+                <div className="mx-1"></div>
                 <div className="flex-fill">
                   <input
+                    style={{ width: "264" }}
                     type="date"
                     name="treatmentEndDate"
                     {...register("treatmentEndDate")}
-                    className={`form-control px-5 ${
+                    className={`form-control ${
                       errors.treatmentEndDate ? "is-invalid" : ""
                     }`}
                   />
@@ -316,7 +335,7 @@ const Main_form = () => {
                 <div className="tbb col-9  flex-fill mx-2">
                   <input
                     {...register("valueA")}
-                    className={`form-control px-5 ${
+                    className={`form-control ${
                       errors.valueA ? "is-invalid" : ""
                     }`}
                     type="text"
@@ -336,6 +355,7 @@ const Main_form = () => {
                   <div className="col-auto me-5 align-self-center">
                     扣除項目
                   </div>
+                  <div className="mx-1"></div>
                   <select
                     className="form-select my-2 mx-2"
                     name="level"
@@ -352,6 +372,7 @@ const Main_form = () => {
                   </select>
                 </div>
                 <div className="d-flex flex-row col-md-6">
+                  <div className="mx-2"></div>
                   <div className="col-3 align-self-center">扣除項目金額</div>
                   <input
                     className="form-control me-2 my-2"
@@ -505,7 +526,7 @@ const Main_form = () => {
               </div>
               {/* <!-- 第10行 --> */}
               <div className="d-flex justify-content-left col-md-12 ">
-                <div className="theader col-auto me-5 align-self-center">
+                <div className="theader col-auto me-5 pe-2 align-self-center">
                   補助金額
                 </div>
                 <div className="tbb col-9  flex-fill mx-2">
@@ -522,7 +543,7 @@ const Main_form = () => {
 
               {/* <!-- 第11行 --> */}
               <div className="d-flex justify-content-left col-md-12 ">
-                <div className="theader col-auto me-5 pe-3 align-self-center">
+                <div className="theader col-auto me-5 pe-4 align-self-center">
                   自付額
                 </div>
                 <div className="tbb col-9  flex-fill mx-2">
@@ -547,7 +568,7 @@ const Main_form = () => {
                     width: 190,
                     height: 38,
                     border: "1px solid lightgray",
-                    borderRadius: "10px",
+                    borderRadius: "5px",
                   }}
                 >
                   <img
@@ -556,7 +577,6 @@ const Main_form = () => {
                       width: "100%",
                       height: "100%",
                       backgroundColor: "white",
-                      borderRadius: "5px",
                     }}
                     src={url}
                   />
@@ -602,10 +622,14 @@ const Main_form = () => {
             <div className="funZone d-flex  align-items-start justify-content-between me-3 mt-1">
               {/* 電子簽 */}
               <div className="signMain col-md-6">
-                電子簽署：
+                <span style={{ color: "black" }}>電子簽署：</span>
                 <div
                   className="signature-canvas"
-                  style={{ border: "2px solid black", width: 500, height: 200 }}
+                  style={{
+                    border: "2px solid lightgray",
+                    width: 500,
+                    height: 200,
+                  }}
                 >
                   <SignatureCanvas
                     canvasProps={{
@@ -619,14 +643,14 @@ const Main_form = () => {
                 <button
                   type="button"
                   onClick={handleClear}
-                  className="btn btn-secondary"
+                  className="btn btn-secondary  mt-1 me-1"
                 >
                   清除
                 </button>
                 <button
                   type="button"
                   onClick={handleGenerate}
-                  className="btn btn-logo"
+                  className="btn btn-logo  mt-1"
                 >
                   確定
                 </button>
