@@ -9,10 +9,11 @@ p {
   }
     @page{
       /* 直向列印 */
-      size: portrait;
+        size: portrait;
+  
     }
-    .funZone{
-      display: none;
+    .printZone{
+      padding: 50px;
     }
     .container{
       transform: scale(0.7);
