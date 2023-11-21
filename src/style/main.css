@@ -23,6 +23,13 @@ p {
     .form-title, .form-name{
       transform: scale(0.8);
     }
+    .dele{
+      display: none;
+    }
+    .logo{
+     margin-right: 20px;
+    }
+
   }
   .btn-logo{
     width: 60px;

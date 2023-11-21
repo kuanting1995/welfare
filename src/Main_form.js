@@ -100,19 +100,19 @@ const Main_form = () => {
           <div className="printZone" ref={componentRef}>
             {/* <!-- 表單抬頭 --> */}
             <div className="form-title d-flex justify-content-between">
-              <div className="col-2 align-self-end">
+              <div className="col-auto align-self-end">
                 <img
-                  style={{ width: "100px" }}
+                  style={{ width: "80px" }}
                   className="logo"
                   src={logo}
                   alt="Logo"
                 />
               </div>
-              <div className="col-8 align-self-end">
+              <div className="col-auto align-self-end">
                 <h3 className="">醫療財團法人辜公亮基金會和信治癌中心醫院</h3>
                 <h7>KOO FOUNDATION SUM YAT-SEN CANCER CENTER</h7>
               </div>
-              <div className="col-1"></div>
+              <div className="mx-4"></div>
               <div className="col-1 align-self-end">
                 <h4 className="dele">作廢</h4>
               </div>
@@ -293,7 +293,7 @@ const Main_form = () => {
                 </div>
                 <div className="d-flex justify-content-between col-md-1"></div>
                 {/* <!--第4行-1 --> */}
-                <div className="d-flex justify-content-left col-md-5 ">
+                <div className="d-flex justify-content-left col-md-8 ">
                   <div className="col-auto align-self-center">就醫日期</div>
                   <div className="mx-4 pe-3"></div>
                   <div className="flex-fill">
@@ -311,8 +311,7 @@ const Main_form = () => {
                       {errors.treatmentStartDate?.message}
                     </div>
                   </div>
-                </div>
-                <div className="d-flex justify-content-left col-md-4">
+                  <div className="mx-4"></div>
                   <div className="col-1 align-self-center">至</div>
                   <div className="mx-1"></div>
                   <div className="flex-fill">
@@ -330,7 +329,7 @@ const Main_form = () => {
                     </div>
                   </div>
                 </div>
-                <div className="d-flex justify-content-left col-md-4"></div>
+                <div className="d-flex justify-content-left col-md-3"></div>
                 {/* <!-- 第5行 --> */}
                 <div className="d-flex justify-content-left col-md-12 pt-1">
                   <div className="theader col-auto me-4 align-self-center">
@@ -570,14 +569,14 @@ const Main_form = () => {
                 </div>
 
                 {/* <!--第12行-1 --> */}
-                <div className="d-flex justify-content-between col-md-4 pt-1">
+                <div className="d-flex justify-content-left col-md-6 pt-1">
                   <div className="col-auto align-self-center">
                     病人/家屬簽章
                   </div>
-                  <div className="me-3"></div>
+                  <div className="me-4"></div>
                   <div
                     style={{
-                      width: 190,
+                      width: 250,
                       height: 38,
                       border: "1px solid lightgray",
                       borderRadius: "5px",
@@ -596,7 +595,7 @@ const Main_form = () => {
                 </div>
 
                 {/* <!-- 第12行-2 --> */}
-                <div className="d-flex justify-content-between col-md-4 pt-1">
+                <div className="d-flex justify-content-between col-md-3 pt-1">
                   <div className="mx-3"></div>
                   <div className="theader col-3 text-center align-self-center">
                     {" "}
@@ -613,7 +612,7 @@ const Main_form = () => {
                   </div>
                 </div>
                 {/* <!-- 第12行-3 --> */}
-                <div className="d-flex justify-content-between col-md-4 pt-1">
+                <div className="d-flex justify-content-between col-md-3 pt-1">
                   <div className="mx-3"></div>
                   <div className="theader col-3 text-center align-self-center">
                     覆核
@@ -643,7 +642,7 @@ const Main_form = () => {
           <div className="d-flex flex-row-reverse pt-1 me-3">
             <ReactToPrint
               trigger={() => (
-                <button className="btn btn-secondary">Print / Download</button>
+                <button className="btn btn-dark">Print / Download</button>
               )}
               content={() => componentRef.current}
             />
