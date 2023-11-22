@@ -112,7 +112,7 @@ const Main_form = () => {
                 <h3 className="">醫療財團法人辜公亮基金會和信治癌中心醫院</h3>
                 <h7>KOO FOUNDATION SUM YAT-SEN CANCER CENTER</h7>
               </div>
-              <div className="mx-4"></div>
+              <div className="mx-"></div>
               <div className="col-1 align-self-end">
                 <h4 className="dele">作廢</h4>
               </div>

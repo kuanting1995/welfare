@@ -9,7 +9,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import ReactToPrint from "react-to-print";
-
 const OpForm = () => {
   const validationSchema = Yup.object().shape({});
 
@@ -417,14 +416,14 @@ const OpForm = () => {
           </div>
         </div>
         {/* 列印BTN */}
-        <div className="d-flex flex-row-reverse pt-1 me-3">
+        {/* <div className="d-flex flex-row-reverse pt-1 me-3">
           <ReactToPrint
             trigger={() => (
               <button className="btn btn-dark">Print / Download</button>
             )}
             content={() => componentRef.current}
           />
-        </div>
+        </div> */}
       </body>
     </>
   );

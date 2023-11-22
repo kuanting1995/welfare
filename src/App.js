@@ -6,9 +6,12 @@ import Nopage from "./Nopage";
 import OpForm from "./OpForm";
 
 function App() {
+
+  console.log(process.env);
+
   return (
     
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<MainForm />} />
