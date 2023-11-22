@@ -10,6 +10,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import ReactToPrint from "react-to-print";
 const OpForm = () => {
+  // 改變標頭檔
+  useEffect(() => {
+    document.title = "社服開案資料";
+  });
+
   const validationSchema = Yup.object().shape({});
 
   const formOptions = { resolver: yupResolver(validationSchema) };
